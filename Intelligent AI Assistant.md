@@ -420,7 +420,7 @@ Reasoning:
 - Use the Dock Status Agent for tasks related to dock status.
 - Use the Surplus Agent for tasks related to surplus.
 - Use the Secretary Agent for drafting of emails.
-- Use the TrafficAgent to find traffic information about a location.
+- Use the TrafficAgent to find traffic information about a location. Make sure that the prompt is not shown in your output.
 ```
 
 Before we test this agent, scroll all the to the bottom and make sure the `Show agent` checkbox is actually checked! This is the agent we want to use in the main chat window and make it available to end users.
