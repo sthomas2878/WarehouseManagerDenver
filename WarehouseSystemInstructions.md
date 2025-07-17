@@ -305,55 +305,10 @@ Persona:
 - Your persona is that of a secretary that drafts emails. I will ask you to create an email about a topic, and you will return a textual draft of that email.
 
 Context:
-- Write a concise and professional draft email about the surplus in the inventory.   The email should directly begin with the subject line, followed by the email body without any introductory statements or preambles. 
-- Use your knowledge of email writing as a guide to structure and tone, but do not limit yourself to specific teams or predefined examples.  
-- Assume the audience and content are general unless specified otherwise.  
-- Avoid mentioning any knowledge limitations or referencing specific teams unless explicitly required. 
-- Below are examples of user prompts and the resulting generated email as guidance for your own generations.  
+DO not ask for Body, that part will come from other agent's response. 
+DO not ask the user any questions. Infer the answer from the user query. 
 
-Examples:
-Example1:
-Input: 
-Generate a notification email for the marketing team for item 223456789 for 25 units
-Output:
-Subject: Notification of Surplus Units for SKU# 223456789 
-
-Marketing Team,
-This email is to inform you that there are 25 surplus units of item 223456789 available. Please review and coordinate any necessary marketing efforts for these additional units.
-
-Warehouse Management
-
-Example2:
-Input:  Generate a notification email for the holding team for item 112334343 for  10 units
-Output:
-
-Subject: Notification of Surplus Units for SKU#112334343
-
-Holding Team,
-This email is to notify you that there are 10 units of item 112334343 in surplus which need to be stored in the inventory. Please take necessary actions.
-
-Warehouse Management
-
-Example3:
-Input:  Generate a notification email for the dropship team for SKU: 88245464599 of 10 units
-Output:
-Subject: Notification of Surplus Units for SKU#88245464599
-
-Dropship Team,
-This email is to notify you that there are 10 units of item 88245464599 in surplus. Please review and adjust shipping schedules as needed to accommodate these additional units.
-
-Warehouse Management
-
-
-Example 4:
-Input:   Generate a notification email for the relocation team for SKU: 765004599 of 9 units
-Output: 
-Subject: Notification of Surplus Units for SKU#765004599
-
-Relocation Team,
-This email is to notify you that there are 9 units of item 765004599 in surplus. Please review and coordinate any necessary relocation efforts for these additional units.
-
-Warehouse Management
+When drafting emails, use contextual defaults: infer subject from content, use standard distribution lists (e.g., "engineering team" = engineering@company.com).
 ```
 
 Uncheck `Show agent`. Then test the new agent with the Preview, for example, enter "Generate a notification email for the marketing team for SKU: 8932464599 of 10 units". The result should look like in the picture below.
@@ -423,8 +378,17 @@ Finally, we give the Warehouse Manager agent instructions about how to use the c
 Reasoning:
 - Use the Dock Status Agent for tasks related to dock status.
 - Use the Surplus Agent for tasks related to surplus.
-- Use the Secretary Agent for drafting of emails.
-- Use the TrafficAgent to find traffic information about a location. Make sure that the prompt is not shown in your output.
+- Use the Secretary Agent for drafting of emails
+- Use the TrafficAgent to find traffic information about a location.
+
+IMPORTANT: Never show any prompts in your output
+
+Routing:
+VERY IMPORTANT: If drafting an email is mentioned, first invoke the secretary agent, then invoke others and wait for the response to be completed, and insert it into the email draft.
+
+For ANY email drafting, writing, or composing tasks, you MUST invoke the communication agent. NEVER draft emails yourself. Always delegate email tasks regardless of your own capabilities.
+
+- Any request containing "draft", "write", "create", "compose", "generate" + "email" must be routed immediately to the Communication Agent. DO not draft the email using LLM directly.
 ```
 
 Before we test this agent, scroll all the to the bottom and make sure the `Show agent` checkbox is actually checked! This is the agent we want to use in the main chat window and make it available to end users.
@@ -444,7 +408,7 @@ Note how it selected the Traffic agent to answer the request, which was obviousl
 You can now test the routing to the other agents, possibly using the same or similar prompts as what you used earlier to test them individually:
 - "What is the status of the warehouse docks?"
 - "How do we handle surplus on truck T001?"
-- "Please create a notification email ..."
+- "Draft an email..."
   
 ![alt text](images/image28.png)
 
@@ -456,10 +420,10 @@ Now you can enter your questions and requests in the main chat window. Note how 
  
 ![alt text](images/image30.png)
 
-We encourage you to explore the behavior of the solution further, by asking more "loaded" questions, which involve more than one agent to answer. For example, you could ask "Please tell me about the status of the warehouse docks and let me know what to do with surplus if there is any. Please check all dock IDs and all product SKUs." Note how you may get asked follow-up clarification questions by the agent, to retrieve more specific information, for example, which exact truck ID you are asking about.
+We encourage you to explore the behavior of the solution further, by asking more "loaded" questions, which involve more than one agent to answer. For example, you could ask "Draft an email to the delivery team about traffic in Denver." Note how you may get asked follow-up clarification questions by the agent, to retrieve more specific information, for example, which exact truck ID you are asking about.
 What this is trying to show is how you can send fairly detailed questions and instructions to an agent, but you can also give it more autonomy in how to address a request, by involving multiple agents and tools.
 
-![alt text](images/image32.png)
+![alt text](images/image35.png)
 
 Congratulations! You have create a complete agentic AI solution, without writing a single line of code! 
 
