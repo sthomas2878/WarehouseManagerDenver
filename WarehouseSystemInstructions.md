@@ -36,7 +36,7 @@ Even though we will take you through a complete and working example, you should 
 
 ## watsonx Orchestrate
 
-As shown in the [Solution Architecture](./images/Intelligent%20Assistant%20Architecture.jpeg), we will build and deploy the majority of the agents for the solution in watsonx Orchestrate.
+As shown in the [Solution Architecture](./images/Intelligent%20Assistant%20Architecture.jpg), we will build and deploy the majority of the agents for the solution in watsonx Orchestrate.
 
 To get to the watsonx Orchestrate console, go the [Resources list on the IBM Cloud homepage](https://cloud.ibm.com/resources).
 
