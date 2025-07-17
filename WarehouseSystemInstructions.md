@@ -1,8 +1,8 @@
-# Use case: Intelligent AI Assistant
+# Use case: Warehouse Management System
 
 ## Table of Contents
 
-- [Use case: Intelligent AI Assistant](#use-case-intelligent-ai-assistant)
+- [Use case: Warehouse Management System](#use-case-warehouse-management-system)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
     - [Pre-requisites](#pre-requisites)
@@ -75,7 +75,11 @@ In the following screen, click on `Create agent`.
 ![alt text](images/image33.png)
 
 On the following page, you can select if you want to create the new agent from scratch or from a template, and give it a name and a description.
-To create the solution, you will need to create a number of agents and we will go through them one by one, starting with the `Dock Status` agent. Let's start by giving it a name and a description. Please ensure that you include your firstname at the end of `Dock Status Agent`. For example, `Dock Status Agent_Sam`:
+To create the solution, you will need to create a number of agents and we will go through them one by one, starting with the `Dock Status` agent. Let's start by giving it a name and a description. 
+
+### For today's session, we are going to use the same watsonX Orchestrate instance. To avoid changing the agents created by other participants, please follow the below convention while naming  agents.
+
+Please ensure that you include your firstname at the end of `Dock Status Agent`. For example, `Dock Status Agent_Sam`:
 - Name: Dock Status Agent_Firstname
 - Description: 
 ```

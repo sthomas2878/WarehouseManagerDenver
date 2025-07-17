@@ -1,4 +1,4 @@
-# Intelligent Assistant 
+# Warehouse Management System 
 
 ![alt text](images/320f612f-526e-4bef-ab38-6bd5d8027f40.png)
 
@@ -22,4 +22,4 @@ You can find step-by-step instructions in [this document](./Intelligent%20AI%20A
 ## Demo Video
 A video demo of the solution is here:
 
-![alt text](IntelligentAssistantDemo.mp4)
+![alt text](WarehouseManagementDemo.mp4)
